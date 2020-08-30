@@ -19,6 +19,7 @@ public class JavaApplication43 {
         System.out.print("Hola");
         System.out.println("x2");
         System.out.println("Cambio");
+        System.out.println("Cambio 2");
     }
     
 }
