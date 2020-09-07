@@ -9,6 +9,6 @@ package javaapplication43;
  *
  * @author ANDRES
  */
-public class Comida {
+public class Comida{
     public String tipoComida;
 }
