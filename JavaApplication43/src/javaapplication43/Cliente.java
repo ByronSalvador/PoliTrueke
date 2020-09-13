@@ -16,6 +16,7 @@ public class Cliente {
     private String direccion;
     private int numTelefono;
     private Carrito carrito;
+    private String correo;
 
     public String getNombre() {
         return nombre;
@@ -63,6 +64,14 @@ public class Cliente {
 
     public void setCarrito(Carrito carrito) {
         this.carrito = carrito;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
     
     

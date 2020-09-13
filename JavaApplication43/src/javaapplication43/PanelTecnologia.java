@@ -5,6 +5,7 @@
  */
 package javaapplication43;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 
 /**
@@ -24,6 +25,31 @@ public class PanelTecnologia extends javax.swing.JPanel {
         return txtCantidad;
     }
 
+    public ButtonGroup getBtgTecno() {
+        return btgTecno;
+    }
+    
+    
+    
+    public String getTipoTecno() {
+        if(rbAudifonos.isSelected()){
+           return rbAudifonos.getText();
+        }else if(rbCamara.isSelected()){
+            return rbCamara.getText();
+        }else if(rbCelular.isSelected()){
+            return rbCelular.getText();
+        }else if(rbComputadora.isSelected()){
+            return rbComputadora.getText();
+        }else if(rbReloj.isSelected()){
+            return rbReloj.getText();
+        }else if(rbTablet.isSelected()){
+            return rbTablet.getText();
+        }else if(rbTelevision.isSelected()){
+            return rbTelevision.getText();
+        }
+        return "";
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,15 +59,16 @@ public class PanelTecnologia extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btgTecno = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
+        rbAudifonos = new javax.swing.JRadioButton();
+        rbCelular = new javax.swing.JRadioButton();
+        rbTablet = new javax.swing.JRadioButton();
+        rbReloj = new javax.swing.JRadioButton();
+        rbComputadora = new javax.swing.JRadioButton();
+        rbTelevision = new javax.swing.JRadioButton();
+        rbCamara = new javax.swing.JRadioButton();
         txtCantidad = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Tecnología"));
@@ -50,19 +77,26 @@ public class PanelTecnologia extends javax.swing.JPanel {
 
         jLabel2.setText("Cantidad:");
 
-        jRadioButton3.setText("jRadioButton3");
+        btgTecno.add(rbAudifonos);
+        rbAudifonos.setText("Audifonos");
 
-        jRadioButton4.setText("jRadioButton4");
+        btgTecno.add(rbCelular);
+        rbCelular.setText("Celular");
 
-        jRadioButton5.setText("jRadioButton5");
+        btgTecno.add(rbTablet);
+        rbTablet.setText("Tablet");
 
-        jRadioButton6.setText("jRadioButton6");
+        btgTecno.add(rbReloj);
+        rbReloj.setText("Reloj");
 
-        jRadioButton7.setText("jRadioButton7");
+        btgTecno.add(rbComputadora);
+        rbComputadora.setText("Computadora");
 
-        jRadioButton8.setText("jRadioButton8");
+        btgTecno.add(rbTelevision);
+        rbTelevision.setText("Television");
 
-        jRadioButton9.setText("jRadioButton9");
+        btgTecno.add(rbCamara);
+        rbCamara.setText("Camara");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -71,15 +105,15 @@ public class PanelTecnologia extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton9)
-                    .addComponent(jRadioButton8)
-                    .addComponent(jRadioButton4)
+                    .addComponent(rbCamara)
+                    .addComponent(rbTelevision)
+                    .addComponent(rbCelular)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton7)
-                            .addComponent(jRadioButton6)
+                            .addComponent(rbAudifonos)
+                            .addComponent(rbTablet)
+                            .addComponent(rbComputadora)
+                            .addComponent(rbReloj)
                             .addComponent(jLabel1))
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,34 +131,35 @@ public class PanelTecnologia extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton3))
+                    .addComponent(rbAudifonos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton4)
+                .addComponent(rbCelular)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton5)
+                .addComponent(rbTablet)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton6)
+                .addComponent(rbReloj)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton7)
+                .addComponent(rbComputadora)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton8)
+                .addComponent(rbTelevision)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton9)
+                .addComponent(rbCamara)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btgTecno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JRadioButton rbAudifonos;
+    private javax.swing.JRadioButton rbCamara;
+    private javax.swing.JRadioButton rbCelular;
+    private javax.swing.JRadioButton rbComputadora;
+    private javax.swing.JRadioButton rbReloj;
+    private javax.swing.JRadioButton rbTablet;
+    private javax.swing.JRadioButton rbTelevision;
     private javax.swing.JTextField txtCantidad;
     // End of variables declaration//GEN-END:variables
 }

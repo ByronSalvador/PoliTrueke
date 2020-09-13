@@ -12,4 +12,5 @@ package javaapplication43;
 public abstract class Producto {
     public double precioUnit;
     public int cantidad;
+    public abstract void obtenerPrecioUnit();
 }

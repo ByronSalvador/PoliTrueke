@@ -8,7 +8,7 @@ package javaapplication43;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import sun.awt.WindowClosingListener;
+//import sun.awt.WindowClosingListener;
 
 /**
  *
@@ -16,6 +16,7 @@ import sun.awt.WindowClosingListener;
  */
 public class GUI_Principal extends javax.swing.JFrame {
     int auxBtnAtras = 0;
+    Cliente cliente = new Cliente();
     
     PanelInicial panelInicial = new PanelInicial();
     PanelCliente panelCliente = new PanelCliente();
@@ -29,6 +30,7 @@ public class GUI_Principal extends javax.swing.JFrame {
      * Creates new form GUI_Principal
      */
     public GUI_Principal() {
+        // 
         initComponents();
         btnAtras.setText("No Acepto");
         btnSiguiente.setText("Acepto");
@@ -165,6 +167,17 @@ public class GUI_Principal extends javax.swing.JFrame {
             MainPanel.add(panelCat);
             panelCliente.setVisible(false);
             auxBtnAtras = 2;
+            
+            try{
+                cliente.setApellido(panelCliente.getTxtApellidoCliente().getText());
+                cliente.setNombre(panelCliente.getTxtNombreCliente().getText());
+                cliente.setCedula(Integer.parseInt(panelCliente.getTxtCedula().getText()));
+                cliente.setCorreo(panelCliente.getTxtCorreo().getText());
+                cliente.setCarrito(new Carrito());
+            }catch(Exception e){
+                
+            }
+            
         }
         if ((panelComida.isVisible() && !panelComida.getTxtCantidad().getText().isEmpty())|| 
                 (panelRopa.isVisible() && !panelRopa.getTxtCantidad().getText().isEmpty())|| 
@@ -173,15 +186,43 @@ public class GUI_Principal extends javax.swing.JFrame {
             btnAtras.setText("Modificar");
             btnSiguiente.setText("Confirmar");
             MainPanel.add(panelCarrito);
+            try{
+                if(panelComida.isVisible()){
+                    cliente.getCarrito().agregarProducto(new Comida(panelComida.getTipoComida(),Integer.parseInt(panelComida.getTxtCantidad().getText())));
+                    ((Producto) cliente.getCarrito().getProductos().get(cliente.getCarrito().getProductos().size() - 1)).obtenerPrecioUnit();
+                    panelComida.getBtgComida().clearSelection();
+                    panelComida.getTxtCantidad().setText("");
+                }else if(panelRopa.isVisible()){
+                    cliente.getCarrito().agregarProducto(new Ropa(panelRopa.getTipoRopa(),Integer.parseInt(panelRopa.getTxtCantidad().getText())));
+                    ((Producto) cliente.getCarrito().getProductos().get(cliente.getCarrito().getProductos().size() - 1)).obtenerPrecioUnit();
+                    panelRopa.getBtgRopa().clearSelection();
+                    panelRopa.getTxtCantidad().setText("");
+                }else if(panelTecno.isVisible()){
+                    cliente.getCarrito().agregarProducto(new Ropa(panelTecno.getTipoTecno(),Integer.parseInt(panelTecno.getTxtCantidad().getText())));
+                    ((Producto) cliente.getCarrito().getProductos().get(cliente.getCarrito().getProductos().size() - 1)).obtenerPrecioUnit();
+                    panelTecno.getBtgTecno().clearSelection();
+                    panelTecno.getTxtCantidad().setText("");
+                }
+            }catch(NumberFormatException e){
+            }
             panelComida.setVisible(false);
             panelRopa.setVisible(false);
             panelTecno.setVisible(false);
             panelCarrito.setVisible(true);
             auxBtnAtras = 4;
+        
+        
+        if(!cliente.getCarrito().getProductos().isEmpty()){
+            panelCarrito.getTxaCarrito().setText("Producto\t\tCantidad\t\tPrecio\n"+
+                                                 cliente.getCarrito().toString()+
+                                                "Total:\t\t\t\t" + cliente.getCarrito().obtenerPrecioTotal());
         }
-        if (panelCarrito.isVisible() && !panelCarrito.getTxaCarrito().getText().isEmpty()){
-            System.exit(0);
         }
+        
+        /*if (panelCarrito.isVisible() && !panelCarrito.getTxaCarrito().getText().isEmpty()){
+            
+           System.exit(0);
+        }*/
         
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
@@ -232,6 +273,7 @@ public class GUI_Principal extends javax.swing.JFrame {
             panelCat.setVisible(true);
             auxBtnAtras = 2;
         }
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**

@@ -5,6 +5,7 @@
  */
 package javaapplication43;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 
 /**
@@ -24,6 +25,31 @@ public class PanelRopa extends javax.swing.JPanel {
         return txtCantidad;
     }
 
+    public ButtonGroup getBtgRopa() {
+        return btgRopa;
+    }
+    
+    
+    
+    public String getTipoRopa() {
+        if(rbCamisa.isSelected()){
+           return rbCamisa.getText();
+        }else if(rbCamiseta.isSelected()){
+            return rbCamiseta.getText();
+        }else if(rbChaqueta.isSelected()){
+            return rbChaqueta.getText();
+        }else if(rbMedias.isSelected()){
+            return rbMedias.getText();
+        }else if(rbPantalon.isSelected()){
+            return rbPantalon.getText();
+        }else if(rbPantalon.isSelected()){
+            return rbPantalon.getText();
+        }else if(rbVestido.isSelected()){
+            return rbVestido.getText();
+        }
+        return "";
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,15 +59,16 @@ public class PanelRopa extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btgRopa = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
+        rbPantalon = new javax.swing.JRadioButton();
+        rbCamiseta = new javax.swing.JRadioButton();
+        rbCamisa = new javax.swing.JRadioButton();
+        rbChaqueta = new javax.swing.JRadioButton();
+        rbMedias = new javax.swing.JRadioButton();
+        rbZapatos = new javax.swing.JRadioButton();
+        rbVestido = new javax.swing.JRadioButton();
         txtCantidad = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Ropa"));
@@ -50,19 +77,26 @@ public class PanelRopa extends javax.swing.JPanel {
 
         jLabel2.setText("Cantidad:");
 
-        jRadioButton3.setText("jRadioButton3");
+        btgRopa.add(rbPantalon);
+        rbPantalon.setText("Pantalon");
 
-        jRadioButton4.setText("jRadioButton4");
+        btgRopa.add(rbCamiseta);
+        rbCamiseta.setText("Camiseta");
 
-        jRadioButton5.setText("jRadioButton5");
+        btgRopa.add(rbCamisa);
+        rbCamisa.setText("Camisa");
 
-        jRadioButton6.setText("jRadioButton6");
+        btgRopa.add(rbChaqueta);
+        rbChaqueta.setText("Chaqueta");
 
-        jRadioButton7.setText("jRadioButton7");
+        btgRopa.add(rbMedias);
+        rbMedias.setText("Medias");
 
-        jRadioButton8.setText("jRadioButton8");
+        btgRopa.add(rbZapatos);
+        rbZapatos.setText("Zapatos");
 
-        jRadioButton9.setText("jRadioButton9");
+        btgRopa.add(rbVestido);
+        rbVestido.setText("Vestido");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -71,15 +105,15 @@ public class PanelRopa extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton9)
-                    .addComponent(jRadioButton8)
-                    .addComponent(jRadioButton4)
+                    .addComponent(rbVestido)
+                    .addComponent(rbZapatos)
+                    .addComponent(rbCamiseta)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton7)
-                            .addComponent(jRadioButton6)
+                            .addComponent(rbPantalon)
+                            .addComponent(rbCamisa)
+                            .addComponent(rbMedias)
+                            .addComponent(rbChaqueta)
                             .addComponent(jLabel1))
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,34 +131,35 @@ public class PanelRopa extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton3))
+                    .addComponent(rbPantalon))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton4)
+                .addComponent(rbCamiseta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton5)
+                .addComponent(rbCamisa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton6)
+                .addComponent(rbChaqueta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton7)
+                .addComponent(rbMedias)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton8)
+                .addComponent(rbZapatos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton9)
+                .addComponent(rbVestido)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btgRopa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JRadioButton rbCamisa;
+    private javax.swing.JRadioButton rbCamiseta;
+    private javax.swing.JRadioButton rbChaqueta;
+    private javax.swing.JRadioButton rbMedias;
+    private javax.swing.JRadioButton rbPantalon;
+    private javax.swing.JRadioButton rbVestido;
+    private javax.swing.JRadioButton rbZapatos;
     private javax.swing.JTextField txtCantidad;
     // End of variables declaration//GEN-END:variables
 }

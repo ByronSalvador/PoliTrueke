@@ -5,6 +5,7 @@
  */
 package javaapplication43;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 
 /**
@@ -22,7 +23,25 @@ public class PanelComida extends javax.swing.JPanel {
 
     public JTextField getTxtCantidad() {
         return txtCantidad;
-        
+    }
+    
+    public String getTipoComida() {
+        if(rbHamburguesa.isSelected()){
+           return rbHamburguesa.getText();
+        }else if(rbHelado.isSelected()){
+            return rbHelado.getText();
+        }else if(rbHotDog.isSelected()){
+            return rbHotDog.getText();
+        }else if(rbPastel.isSelected()){
+            return rbPastel.getText();
+        }else if(rbPizza.isSelected()){
+            return rbPizza.getText();
+        }else if(rbPolloFrito.isSelected()){
+            return rbPolloFrito.getText();
+        }else if(rbTacos.isSelected()){
+            return rbTacos.getText();
+        }
+        return "";
     }
     
     /**
@@ -34,15 +53,16 @@ public class PanelComida extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btgComida = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
+        rbPizza = new javax.swing.JRadioButton();
+        rbHamburguesa = new javax.swing.JRadioButton();
+        rbHotDog = new javax.swing.JRadioButton();
+        rbTacos = new javax.swing.JRadioButton();
+        rbPolloFrito = new javax.swing.JRadioButton();
+        rbHelado = new javax.swing.JRadioButton();
+        rbPastel = new javax.swing.JRadioButton();
         txtCantidad = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Comida"));
@@ -51,19 +71,31 @@ public class PanelComida extends javax.swing.JPanel {
 
         jLabel2.setText("Cantidad:");
 
-        jRadioButton3.setText("jRadioButton3");
+        btgComida.add(rbPizza);
+        rbPizza.setText("Pizza");
 
-        jRadioButton4.setText("jRadioButton4");
+        btgComida.add(rbHamburguesa);
+        rbHamburguesa.setText("Hamburguesa");
 
-        jRadioButton5.setText("jRadioButton5");
+        btgComida.add(rbHotDog);
+        rbHotDog.setText("Hot-Dog");
 
-        jRadioButton6.setText("jRadioButton6");
+        btgComida.add(rbTacos);
+        rbTacos.setText("Tacos");
 
-        jRadioButton7.setText("jRadioButton7");
+        btgComida.add(rbPolloFrito);
+        rbPolloFrito.setText("Pollo-Frito");
+        rbPolloFrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbPolloFritoActionPerformed(evt);
+            }
+        });
 
-        jRadioButton8.setText("jRadioButton8");
+        btgComida.add(rbHelado);
+        rbHelado.setText("Helado");
 
-        jRadioButton9.setText("jRadioButton9");
+        btgComida.add(rbPastel);
+        rbPastel.setText("Pastel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -72,15 +104,15 @@ public class PanelComida extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton9)
-                    .addComponent(jRadioButton8)
-                    .addComponent(jRadioButton4)
+                    .addComponent(rbPastel)
+                    .addComponent(rbHelado)
+                    .addComponent(rbHamburguesa)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton7)
-                            .addComponent(jRadioButton6)
+                            .addComponent(rbPizza)
+                            .addComponent(rbHotDog)
+                            .addComponent(rbPolloFrito)
+                            .addComponent(rbTacos)
                             .addComponent(jLabel1))
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,34 +130,47 @@ public class PanelComida extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton3))
+                    .addComponent(rbPizza))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton4)
+                .addComponent(rbHamburguesa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton5)
+                .addComponent(rbHotDog)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton6)
+                .addComponent(rbTacos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton7)
+                .addComponent(rbPolloFrito)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton8)
+                .addComponent(rbHelado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton9)
+                .addComponent(rbPastel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void rbPolloFritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPolloFritoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbPolloFritoActionPerformed
 
+    public ButtonGroup getBtgComida() {
+        return btgComida;
+    }
+
+    public void setBtgComida(ButtonGroup btgComida) {
+        this.btgComida = btgComida;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btgComida;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JRadioButton rbHamburguesa;
+    private javax.swing.JRadioButton rbHelado;
+    private javax.swing.JRadioButton rbHotDog;
+    private javax.swing.JRadioButton rbPastel;
+    private javax.swing.JRadioButton rbPizza;
+    private javax.swing.JRadioButton rbPolloFrito;
+    private javax.swing.JRadioButton rbTacos;
     private javax.swing.JTextField txtCantidad;
     // End of variables declaration//GEN-END:variables
 }
