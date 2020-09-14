@@ -25,6 +25,7 @@ public class GUI_Principal extends javax.swing.JFrame {
     PanelRopa panelRopa = new PanelRopa();
     PanelTecnologia panelTecno = new PanelTecnologia();
     PanelCarrito panelCarrito = new PanelCarrito();
+    PanelFinal panelFinal = new PanelFinal();
     
     /**
      * Creates new form GUI_Principal
@@ -39,7 +40,7 @@ public class GUI_Principal extends javax.swing.JFrame {
         MainPanel.add(panelInicial);
         
         panelInicial.setVisible(true);
-
+        panelFinal.setVisible(false);
         panelCat.getRbComida().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -157,6 +158,7 @@ public class GUI_Principal extends javax.swing.JFrame {
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
         // TODO add your handling code here:
+        
         if (panelInicial.isVisible()){
             btnAtras.setText("Atrás");
             btnSiguiente.setText("Ingresar");
@@ -169,20 +171,18 @@ public class GUI_Principal extends javax.swing.JFrame {
                 && !panelCliente.getTxtApellidoCliente().getText().isEmpty() 
                 && !panelCliente.getTxtCedula().getText().isEmpty()
                 && !panelCliente.getTxtCorreo().getText().isEmpty()){
-            btnSiguiente.setVisible(false);
-            MainPanel.add(panelCat);
-            panelCliente.setVisible(false);
-            auxBtnAtras = 2;
-            
-            try{
+            try{ 
                 cliente.setApellido(panelCliente.getTxtApellidoCliente().getText());
                 cliente.setNombre(panelCliente.getTxtNombreCliente().getText());
                 cliente.setCedula(Integer.parseInt(panelCliente.getTxtCedula().getText()));
                 cliente.setCorreo(panelCliente.getTxtCorreo().getText());
                 cliente.setCarrito(new Carrito());
-            }catch(Exception e){
-//                JOptionPane.showMessageDialog(rootPane, "Error", "Se ha ingresado un valor"
-//                        + " incorrecto para el campo cédula", 1);
+                btnSiguiente.setVisible(false);
+                MainPanel.add(panelCat);
+                panelCliente.setVisible(false);
+                auxBtnAtras = 2;            
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(rootPane, "Error el dato ingresado no es del tipo correcto.");
             }
             
         }
@@ -201,10 +201,6 @@ public class GUI_Principal extends javax.swing.JFrame {
                 panelTecno.getRbCelular().isSelected() || panelTecno.getRbComputadora().isSelected() ||
                 panelTecno.getRbReloj().isSelected() || panelTecno.getRbTablet().isSelected() ||
                 panelTecno.getRbTelevision().isSelected()))){
-            btnAgregar.setVisible(true);
-            btnAtras.setText("Modificar");
-            btnSiguiente.setText("Confirmar");
-            
             try{
                 if(panelComida.isVisible()){
                     cliente.getCarrito().agregarProducto(new Comida(panelComida.getTipoComida(),Integer.parseInt(panelComida.getTxtCantidad().getText())));
@@ -224,27 +220,26 @@ public class GUI_Principal extends javax.swing.JFrame {
                     panelTecno.getBtgTecno().clearSelection();
                     panelTecno.getTxtCantidad().setText("");
                 }
+                btnAgregar.setVisible(true);
+                btnAtras.setText("Modificar");
+                btnSiguiente.setText("Confirmar");
+                MainPanel.add(panelCarrito);
+                panelComida.setVisible(false);
+                panelRopa.setVisible(false);
+                panelTecno.setVisible(false);
+                panelCarrito.setVisible(true);
+                auxBtnAtras = 4;
             }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(rootPane, "Error el dato ingresado no es del tipo correcto.");
             }
-            MainPanel.add(panelCarrito);
-            panelComida.setVisible(false);
-            panelRopa.setVisible(false);
-            panelTecno.setVisible(false);
-            panelCarrito.setVisible(true);
-            auxBtnAtras = 4;
-        
-        
-        if(!cliente.getCarrito().getProductos().isEmpty()){
-            panelCarrito.getTxaCarrito().setText("Producto\t\tCantidad\t\tPrecio\n"+
-                                                 cliente.getCarrito().toString()+
-                                                "Total:\t\t\t\t" + cliente.getCarrito().obtenerPrecioTotal());
+            if(!cliente.getCarrito().getProductos().isEmpty()){
+                panelCarrito.getTxaCarrito().setText("Producto\t\tCantidad\t\tPrecio\n"+
+                                                     cliente.getCarrito().toString()+
+                                                    "Total:\t\t\t\t" + cliente.getCarrito().obtenerPrecioTotal());
+            }
+        }else if (panelCarrito.isVisible() && !panelCarrito.getTxaCarrito().getText().isEmpty()){
+            System.exit(0);
         }
-        }
-        
-        /*if (panelCarrito.isVisible() && !panelCarrito.getTxaCarrito().getText().isEmpty()){
-            
-           System.exit(0);
-        }*/
         
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
