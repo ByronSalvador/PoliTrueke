@@ -6,6 +6,7 @@
 package javaapplication43;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
@@ -23,6 +24,34 @@ public class PanelComida extends javax.swing.JPanel {
 
     public JTextField getTxtCantidad() {
         return txtCantidad;
+    }
+
+    public JRadioButton getRbHamburguesa() {
+        return rbHamburguesa;
+    }
+
+    public JRadioButton getRbHelado() {
+        return rbHelado;
+    }
+
+    public JRadioButton getRbHotDog() {
+        return rbHotDog;
+    }
+
+    public JRadioButton getRbPastel() {
+        return rbPastel;
+    }
+
+    public JRadioButton getRbPizza() {
+        return rbPizza;
+    }
+
+    public JRadioButton getRbPolloFrito() {
+        return rbPolloFrito;
+    }
+
+    public JRadioButton getRbTacos() {
+        return rbTacos;
     }
     
     public String getTipoComida() {

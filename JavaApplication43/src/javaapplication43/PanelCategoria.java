@@ -5,6 +5,7 @@
  */
 package javaapplication43;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 
 /**
@@ -30,6 +31,12 @@ public class PanelCategoria extends javax.swing.JPanel {
     public JRadioButton getRbTecnologia() {
         return rbTecnologia;
     }
+
+    public ButtonGroup getButtonGroupCategoria() {
+        return buttonGroupCategoria;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
