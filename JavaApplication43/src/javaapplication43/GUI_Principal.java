@@ -241,39 +241,86 @@ public class GUI_Principal extends javax.swing.JFrame {
                 panelTecno.getRbReloj().isSelected() || panelTecno.getRbTablet().isSelected() ||
                 panelTecno.getRbTelevision().isSelected()))){
             try{
-                if(panelComida.isVisible()){
-                    cliente.getCarrito().agregarProducto(new Comida(panelComida.getTipoComida(),Integer.parseInt(panelComida.getTxtCantidad().getText())));
-                    ((Producto) cliente.getCarrito().getProductos().get(cliente.getCarrito().getProductos().size() - 1)).obtenerPrecioUnit();
-                    panelComida.getBtgComida().clearSelection();
-                    panelComida.getTxtCantidad().setText("");
-                } 
-                if(panelRopa.isVisible()){
-                    cliente.getCarrito().agregarProducto(new Ropa(panelRopa.getTipoRopa(),Integer.parseInt(panelRopa.getTxtCantidad().getText()),panelRopa.getTalla()));
-                    ((Producto) cliente.getCarrito().getProductos().get(cliente.getCarrito().getProductos().size() - 1)).obtenerPrecioUnit();
-                    panelRopa.getBtgRopa().clearSelection();
-                    panelRopa.getBtgTalla().clearSelection();
-                    panelRopa.getTxtCantidad().setText("");
-                } 
-                if(panelTecno.isVisible()){
-                    cliente.getCarrito().agregarProducto(new Tecnologia(panelTecno.getTipoTecno(),Integer.parseInt(panelTecno.getTxtCantidad().getText())));
-                    ((Producto) cliente.getCarrito().getProductos().get(cliente.getCarrito().getProductos().size() - 1)).obtenerPrecioUnit();
-                    panelTecno.getBtgTecno().clearSelection();
-                    panelTecno.getTxtCantidad().setText("");
-                }
-                btnAgregar.setVisible(true);
-                btnAtras.setText("Modificar");
-                btnSiguiente.setText("Confirmar");
-                MainPanel.add(panelCarrito);
-                panelComida.setVisible(false);
-                panelRopa.setVisible(false);
-                panelTecno.setVisible(false);
-                panelCarrito.setVisible(true);
-                auxBtnAtras = 4;
+                
+                    if(panelComida.isVisible()){
+                         if(Integer.parseInt(panelComida.getTxtCantidad().getText()) < 0 ){
+                            panelComida.getBtgComida().clearSelection();
+                            panelComida.getTxtCantidad().setText("");
+                            panelTecno.getBtgTecno().clearSelection();
+                            panelTecno.getTxtCantidad().setText("");
+                            JOptionPane.showMessageDialog(rootPane, "Error la cantidad debe ser mayor que 0."); 
+                        }else{
+                            cliente.getCarrito().agregarProducto(new Comida(panelComida.getTipoComida(),Integer.parseInt(panelComida.getTxtCantidad().getText())));
+                            ((Producto) cliente.getCarrito().getProductos().get(cliente.getCarrito().getProductos().size() - 1)).obtenerPrecioUnit();
+                            panelComida.getBtgComida().clearSelection();
+                            panelComida.getTxtCantidad().setText("");
+                            btnAgregar.setVisible(true);
+                            btnAtras.setText("Modificar");
+                            btnSiguiente.setText("Confirmar");
+                            MainPanel.add(panelCarrito);
+                            panelComida.setVisible(false);
+                            panelRopa.setVisible(false);
+                            panelTecno.setVisible(false);
+                            panelCarrito.setVisible(true);
+                            auxBtnAtras = 4;
+                        }
+                    } 
+                    if(panelRopa.isVisible()){
+                        if(Integer.parseInt(panelRopa.getTxtCantidad().getText()) < 0 ){
+                            panelComida.getBtgComida().clearSelection();
+                            panelComida.getTxtCantidad().setText("");
+                            panelRopa.getBtgRopa().clearSelection();
+                            panelRopa.getBtgTalla().clearSelection();
+                            panelRopa.getTxtCantidad().setText("");
+                            panelTecno.getBtgTecno().clearSelection();
+                            panelTecno.getTxtCantidad().setText("");
+                            JOptionPane.showMessageDialog(rootPane, "Error la cantidad debe ser mayor que 0."); 
+                        }else{
+                            cliente.getCarrito().agregarProducto(new Ropa(panelRopa.getTipoRopa(),Integer.parseInt(panelRopa.getTxtCantidad().getText()),panelRopa.getTalla()));
+                            ((Producto) cliente.getCarrito().getProductos().get(cliente.getCarrito().getProductos().size() - 1)).obtenerPrecioUnit();
+                            panelRopa.getBtgRopa().clearSelection();
+                            panelRopa.getBtgTalla().clearSelection();
+                            panelRopa.getTxtCantidad().setText("");
+                            btnAgregar.setVisible(true);
+                            btnAtras.setText("Modificar");
+                            btnSiguiente.setText("Confirmar");
+                            MainPanel.add(panelCarrito);
+                            panelComida.setVisible(false);
+                            panelRopa.setVisible(false);
+                            panelTecno.setVisible(false);
+                            panelCarrito.setVisible(true);
+                            auxBtnAtras = 4;
+                        }
+           
+                    } 
+                    if(panelTecno.isVisible()){
+                        if(Integer.parseInt(panelTecno.getTxtCantidad().getText()) < 0 ){
+                            panelTecno.getBtgTecno().clearSelection();
+                            panelTecno.getTxtCantidad().setText("");
+                            JOptionPane.showMessageDialog(rootPane, "Error la cantidad debe ser mayor que 0."); 
+                        }else{
+                            cliente.getCarrito().agregarProducto(new Tecnologia(panelTecno.getTipoTecno(),Integer.parseInt(panelTecno.getTxtCantidad().getText())));
+                            ((Producto) cliente.getCarrito().getProductos().get(cliente.getCarrito().getProductos().size() - 1)).obtenerPrecioUnit();
+                            panelTecno.getBtgTecno().clearSelection();
+                            panelTecno.getTxtCantidad().setText("");
+                            btnAgregar.setVisible(true);
+                            btnAtras.setText("Modificar");
+                            btnSiguiente.setText("Confirmar");
+                            MainPanel.add(panelCarrito);
+                            panelComida.setVisible(false);
+                            panelRopa.setVisible(false);
+                            panelTecno.setVisible(false);
+                            panelCarrito.setVisible(true);
+                            auxBtnAtras = 4;
+                        }
+                    }
+                    
+                
             }catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(rootPane, "Error el dato ingresado no es del tipo correcto.");
             }
             if(!cliente.getCarrito().getProductos().isEmpty()){
-                panelCarrito.getTxaCarrito().setText("Producto\t\tCantidad\t\tPrecio\n"+
+                panelCarrito.getTxaCarrito().setText("Producto\t\tPrecio\t\tCantidad\n"+
                                                      cliente.getCarrito().toString()+
                                                     "Total:\t\t\t\t" + cliente.getCarrito().obtenerPrecioTotal());
             }
