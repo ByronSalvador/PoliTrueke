@@ -273,7 +273,7 @@ public class GUI_Principal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Error el dato ingresado no es del tipo correcto.");
             }
             if(!cliente.getCarrito().getProductos().isEmpty()){
-                panelCarrito.getTxaCarrito().setText("Producto\t\tCantidad\t\tPrecio\n"+
+                panelCarrito.getTxaCarrito().setText("Producto\t\tPrecio\t\tCantidad\n"+
                                                      cliente.getCarrito().toString()+
                                                     "Total:\t\t\t\t" + cliente.getCarrito().obtenerPrecioTotal());
             }
