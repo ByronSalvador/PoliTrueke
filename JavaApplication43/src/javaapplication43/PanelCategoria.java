@@ -51,6 +51,7 @@ public class PanelCategoria extends javax.swing.JPanel {
         rbRopa = new javax.swing.JRadioButton();
         rbComida = new javax.swing.JRadioButton();
         lblSeleccionCategoria = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         buttonGroupCategoria.add(rbTecnologia);
         rbTecnologia.setText("Tecnología");
@@ -63,6 +64,8 @@ public class PanelCategoria extends javax.swing.JPanel {
 
         lblSeleccionCategoria.setText("Seleccione categoria");
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cajas.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,13 +75,15 @@ public class PanelCategoria extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbTecnologia)
+                            .addComponent(rbComida)
                             .addComponent(rbRopa)
-                            .addComponent(rbComida)))
+                            .addComponent(rbTecnologia))
+                        .addGap(108, 108, 108)
+                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
+                        .addGap(125, 125, 125)
                         .addComponent(lblSeleccionCategoria)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,18 +91,23 @@ public class PanelCategoria extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(lblSeleccionCategoria)
                 .addGap(18, 18, 18)
-                .addComponent(rbComida)
-                .addGap(18, 18, 18)
-                .addComponent(rbRopa)
-                .addGap(18, 18, 18)
-                .addComponent(rbTecnologia)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(rbComida)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbRopa)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbTecnologia)
+                        .addGap(16, 16, 16)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupCategoria;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblSeleccionCategoria;
     private javax.swing.JRadioButton rbComida;
     private javax.swing.JRadioButton rbRopa;
