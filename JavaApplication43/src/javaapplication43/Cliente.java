@@ -14,10 +14,7 @@ public class Cliente {
     private String apellido;
     private int cedula;
     private String direccion;
-    private int numTelefono;
     private Carrito carrito;
-    private String correo;
-
     public String getNombre() {
         return nombre;
     }
@@ -50,14 +47,7 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public int getNumTelefono() {
-        return numTelefono;
-    }
-
-    public void setNumTelefono(int numTelefono) {
-        this.numTelefono = numTelefono;
-    }
-
+   
     public Carrito getCarrito() {
         return carrito;
     }
@@ -66,13 +56,6 @@ public class Cliente {
         this.carrito = carrito;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
     
     
 }

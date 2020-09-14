@@ -13,9 +13,10 @@ public class Ropa extends Producto{
     public String tipoRopa;
     public int talla;
 
-    public Ropa(String tipoRopa, int cantidad) {
+    public Ropa(String tipoRopa, int cantidad, int talla) {
         this.tipoRopa = tipoRopa;
         this.cantidad = cantidad;
+        this.talla = talla;
     }
     
     /**
