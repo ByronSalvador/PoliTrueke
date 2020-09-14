@@ -13,25 +13,34 @@ import java.util.Iterator;
  * @author ANDRES
  */
 public class Carrito {
-    private ArrayList productos;
+    private ArrayList<Producto> productos = new ArrayList<>();
     private int codCarrito;
 
     public ArrayList getProductos() {
         return productos;
     }
     
-    public void agregarProducto(Producto producto, int cantidad){
-        for(int i = 0; i < cantidad; i++){
-            this.productos.add(producto);
-        }
+    public void agregarProducto(Producto producto){
+        this.productos.add(producto);    
     }
     
     public double obtenerPrecioTotal(){
         double precioTotal = 0;
-        Iterator <String> iterador = this.productos.iterator();
+        Iterator <Producto> iterador = this.productos.iterator();
         for (Object p : this.productos) {
             precioTotal += ((Producto) p).precioUnit * ((Producto) p).cantidad;
         }
         return precioTotal;
     }
+
+    @Override
+    public String toString() {
+        String toString = "";
+        for (Object p : this.productos) {
+            toString += p.toString() + "\n";
+        }
+        return toString;
+    }
+    
+    
 }
