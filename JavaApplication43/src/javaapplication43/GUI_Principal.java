@@ -5,9 +5,13 @@
  */
 package javaapplication43;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 //import sun.awt.WindowClosingListener;
 
 /**
@@ -26,12 +30,13 @@ public class GUI_Principal extends javax.swing.JFrame {
     PanelTecnologia panelTecno = new PanelTecnologia();
     PanelCarrito panelCarrito = new PanelCarrito();
     PanelFinal panelFinal = new PanelFinal();
-    
+    FondoPanel fondo = new FondoPanel();
     /**
      * Creates new form GUI_Principal
      */
     public GUI_Principal() {
         //
+        this.setContentPane(fondo);
         panelInicial.getTxaInicio().setText("INFORMACIÓN RELEVANTE\n" +
                     "\n" +
                     "Es requisito necesario para la adquisición de los productos que se ofrecen en este sitio, que lea y acepte los siguientes Términos y Condiciones que a continuación se redactan. El uso de nuestros servicios así como la compra de nuestros productos implicará que usted ha leído y aceptado los Términos y Condiciones de Uso en el presente documento. Todas los productos  que son ofrecidos por nuestro sitio web pudieran ser creadas, cobradas, enviadas o presentadas por una página web tercera y en tal caso estarían sujetas a sus propios Términos y Condiciones. En algunos casos, para adquirir un producto, será necesario el registro por parte del usuario, con ingreso de datos personales fidedignos y definición de una contraseña.\n" +
@@ -374,4 +379,17 @@ public class GUI_Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnSiguiente;
     // End of variables declaration//GEN-END:variables
+    class FondoPanel extends JPanel{
+    private Image imagen;
+    
+    @Override
+    public void paint (Graphics g){
+        imagen = new ImageIcon(getClass().getResource("/Imagenes/imagen.jpg")).getImage();
+        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+        super.paint(g);
+    }
+    
+}
+
 }
