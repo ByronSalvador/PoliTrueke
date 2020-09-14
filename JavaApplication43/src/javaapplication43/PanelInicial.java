@@ -5,6 +5,8 @@
  */
 package javaapplication43;
 
+import javax.swing.JTextArea;
+
 /**
  *
  * @author GANDHY
@@ -18,6 +20,10 @@ public class PanelInicial extends javax.swing.JPanel {
         initComponents();
     }
 
+    public JTextArea getTxaInicio() {
+        return txaInicio;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,12 +34,12 @@ public class PanelInicial extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txaInicio = new javax.swing.JTextArea();
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txaInicio.setEditable(false);
+        txaInicio.setColumns(20);
+        txaInicio.setRows(5);
+        jScrollPane1.setViewportView(txaInicio);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -56,6 +62,6 @@ public class PanelInicial extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txaInicio;
     // End of variables declaration//GEN-END:variables
 }
