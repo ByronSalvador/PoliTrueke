@@ -5,25 +5,19 @@
  */
 package javaapplication43;
 
-import javax.swing.JTextArea;
-
 /**
  *
  * @author GANDHY
  */
-public class PanelInicial extends javax.swing.JPanel {
+public class PanelFinal extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelInicial
      */
-    public PanelInicial() {
+    public PanelFinal() {
         initComponents();
     }
 
-    public JTextArea getTxaInicio() {
-        return txaInicio;
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,35 +27,19 @@ public class PanelInicial extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txaInicio = new javax.swing.JTextArea();
-
-        txaInicio.setEditable(false);
-        txaInicio.setColumns(20);
-        txaInicio.setRows(5);
-        jScrollPane1.setViewportView(txaInicio);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 321, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 263, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txaInicio;
     // End of variables declaration//GEN-END:variables
 }
