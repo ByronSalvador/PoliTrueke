@@ -76,7 +76,7 @@ public class GUI_Principal extends javax.swing.JFrame {
         btnSiguiente.setText("Acepto");
         btnAgregar.setVisible(false);
 
-        MainPanel.add(panelInicial);
+        mainPanel.add(panelInicial);
         
         panelInicial.setVisible(true);
         panelFinal.setVisible(false);
@@ -86,7 +86,7 @@ public class GUI_Principal extends javax.swing.JFrame {
                 btnSiguiente.setVisible(true);
                 btnSiguiente.setText("Agregar");
                 panelCat.setVisible(false);
-                MainPanel.add(panelComida);
+                mainPanel.add(panelComida);
                 panelTecno.setVisible(false);
                 panelRopa.setVisible(false);
                 panelComida.setVisible(true);
@@ -99,7 +99,7 @@ public class GUI_Principal extends javax.swing.JFrame {
                 btnSiguiente.setVisible(true);
                 btnSiguiente.setText("Agregar");
                 panelCat.setVisible(false);
-                MainPanel.add(panelRopa);
+                mainPanel.add(panelRopa);
                 panelComida.setVisible(false);
                 panelTecno.setVisible(false);
                 panelRopa.setVisible(true);
@@ -112,7 +112,7 @@ public class GUI_Principal extends javax.swing.JFrame {
                 btnSiguiente.setVisible(true);
                 btnSiguiente.setText("Agregar");
                 panelCat.setVisible(false);
-                MainPanel.add(panelTecno);
+                mainPanel.add(panelTecno);
                 panelComida.setVisible(false);
                 panelRopa.setVisible(false);
                 panelTecno.setVisible(true);
@@ -133,7 +133,7 @@ public class GUI_Principal extends javax.swing.JFrame {
 
         btnAtras = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
-        MainPanel = new javax.swing.JPanel();
+        mainPanel = new javax.swing.JPanel();
         btnAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -153,8 +153,8 @@ public class GUI_Principal extends javax.swing.JFrame {
             }
         });
 
-        MainPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        MainPanel.setLayout(new java.awt.BorderLayout());
+        mainPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        mainPanel.setLayout(new java.awt.BorderLayout());
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -170,7 +170,7 @@ public class GUI_Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(126, 126, 126)
@@ -182,9 +182,9 @@ public class GUI_Principal extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
-                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap(62, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAtras)
                     .addComponent(btnSiguiente)
@@ -201,7 +201,7 @@ public class GUI_Principal extends javax.swing.JFrame {
         if (panelInicial.isVisible()){
             btnAtras.setText("Atrás");
             btnSiguiente.setText("Ingresar");
-            MainPanel.add(panelCliente);
+            mainPanel.add(panelCliente);
             panelInicial.setVisible(false);
             panelCliente.setVisible(true);
             auxBtnAtras = 1;
@@ -217,9 +217,10 @@ public class GUI_Principal extends javax.swing.JFrame {
                 cliente.setDireccion(panelCliente.getTxtDireccion().getText());
                 cliente.setCarrito(new Carrito());
                 btnSiguiente.setVisible(false);
-                MainPanel.add(panelCat);
+                mainPanel.add(panelCat);
                 panelCliente.setVisible(false);
-                auxBtnAtras = 2;            
+                panelCat.setVisible(true);
+                auxBtnAtras = 2;
             }catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(rootPane, "Error el dato ingresado no es del tipo correcto.");
             }
@@ -263,7 +264,7 @@ public class GUI_Principal extends javax.swing.JFrame {
                 btnAgregar.setVisible(true);
                 btnAtras.setText("Modificar");
                 btnSiguiente.setText("Confirmar");
-                MainPanel.add(panelCarrito);
+                mainPanel.add(panelCarrito);
                 panelComida.setVisible(false);
                 panelRopa.setVisible(false);
                 panelTecno.setVisible(false);
@@ -302,6 +303,7 @@ public class GUI_Principal extends javax.swing.JFrame {
             panelCat.setVisible(false);
             panelCliente.setVisible(true);
             auxBtnAtras = 1;
+            
         }
         if ((panelComida.isVisible() || panelRopa.isVisible() || panelTecno.isVisible()) && 
                 (auxBtnAtras == 3)){
@@ -374,10 +376,10 @@ public class GUI_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel MainPanel;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnSiguiente;
+    private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
     class FondoPanel extends JPanel{
     private Image imagen;
