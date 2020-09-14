@@ -47,6 +47,8 @@ public class GUI_Principal extends javax.swing.JFrame {
                 btnSiguiente.setText("Agregar");
                 panelCat.setVisible(false);
                 MainPanel.add(panelComida);
+                panelTecno.setVisible(false);
+                panelRopa.setVisible(false);
                 panelComida.setVisible(true);
                 auxBtnAtras = 3;
             }
@@ -58,6 +60,8 @@ public class GUI_Principal extends javax.swing.JFrame {
                 btnSiguiente.setText("Agregar");
                 panelCat.setVisible(false);
                 MainPanel.add(panelRopa);
+                panelComida.setVisible(false);
+                panelTecno.setVisible(false);
                 panelRopa.setVisible(true);
                 auxBtnAtras = 3;
             }
@@ -69,6 +73,8 @@ public class GUI_Principal extends javax.swing.JFrame {
                 btnSiguiente.setText("Agregar");
                 panelCat.setVisible(false);
                 MainPanel.add(panelTecno);
+                panelComida.setVisible(false);
+                panelRopa.setVisible(false);
                 panelTecno.setVisible(true);
                 auxBtnAtras = 3;
             }
@@ -175,36 +181,52 @@ public class GUI_Principal extends javax.swing.JFrame {
                 cliente.setCorreo(panelCliente.getTxtCorreo().getText());
                 cliente.setCarrito(new Carrito());
             }catch(Exception e){
-                
+//                JOptionPane.showMessageDialog(rootPane, "Error", "Se ha ingresado un valor"
+//                        + " incorrecto para el campo cédula", 1);
             }
             
         }
-        if ((panelComida.isVisible() && !panelComida.getTxtCantidad().getText().isEmpty())|| 
-                (panelRopa.isVisible() && !panelRopa.getTxtCantidad().getText().isEmpty())|| 
-                (panelTecno.isVisible() && !panelTecno.getTxtCantidad().getText().isEmpty())){
+        if ((panelComida.isVisible() && !panelComida.getTxtCantidad().getText().isEmpty() &&
+                (panelComida.getRbHamburguesa().isSelected() || panelComida.getRbHelado().isSelected() ||
+                panelComida.getRbHotDog().isSelected() || panelComida.getRbPastel().isSelected() ||
+                panelComida.getRbPizza().isSelected() || panelComida.getRbPolloFrito().isSelected() ||
+                panelComida.getRbTacos().isSelected()))|| 
+                (panelRopa.isVisible() && !panelRopa.getTxtCantidad().getText().isEmpty() &&
+                (panelRopa.getRbCamisa().isSelected() || panelRopa.getRbCamiseta().isSelected() ||
+                panelRopa.getRbChaqueta().isSelected() || panelRopa.getRbMedias().isSelected() ||
+                panelRopa.getRbPantalon().isSelected() || panelRopa.getRbVestido().isSelected() ||
+                panelRopa.getRbZapatos().isSelected()))|| 
+                (panelTecno.isVisible() && !panelTecno.getTxtCantidad().getText().isEmpty() &&
+                (panelTecno.getRbAudifonos().isSelected() || panelTecno.getRbCamara().isSelected() ||
+                panelTecno.getRbCelular().isSelected() || panelTecno.getRbComputadora().isSelected() ||
+                panelTecno.getRbReloj().isSelected() || panelTecno.getRbTablet().isSelected() ||
+                panelTecno.getRbTelevision().isSelected()))){
             btnAgregar.setVisible(true);
             btnAtras.setText("Modificar");
             btnSiguiente.setText("Confirmar");
-            MainPanel.add(panelCarrito);
+            
             try{
                 if(panelComida.isVisible()){
                     cliente.getCarrito().agregarProducto(new Comida(panelComida.getTipoComida(),Integer.parseInt(panelComida.getTxtCantidad().getText())));
                     ((Producto) cliente.getCarrito().getProductos().get(cliente.getCarrito().getProductos().size() - 1)).obtenerPrecioUnit();
                     panelComida.getBtgComida().clearSelection();
                     panelComida.getTxtCantidad().setText("");
-                }else if(panelRopa.isVisible()){
+                } 
+                if(panelRopa.isVisible()){
                     cliente.getCarrito().agregarProducto(new Ropa(panelRopa.getTipoRopa(),Integer.parseInt(panelRopa.getTxtCantidad().getText())));
                     ((Producto) cliente.getCarrito().getProductos().get(cliente.getCarrito().getProductos().size() - 1)).obtenerPrecioUnit();
                     panelRopa.getBtgRopa().clearSelection();
                     panelRopa.getTxtCantidad().setText("");
-                }else if(panelTecno.isVisible()){
-                    cliente.getCarrito().agregarProducto(new Ropa(panelTecno.getTipoTecno(),Integer.parseInt(panelTecno.getTxtCantidad().getText())));
+                } 
+                if(panelTecno.isVisible()){
+                    cliente.getCarrito().agregarProducto(new Tecnologia(panelTecno.getTipoTecno(),Integer.parseInt(panelTecno.getTxtCantidad().getText())));
                     ((Producto) cliente.getCarrito().getProductos().get(cliente.getCarrito().getProductos().size() - 1)).obtenerPrecioUnit();
                     panelTecno.getBtgTecno().clearSelection();
                     panelTecno.getTxtCantidad().setText("");
                 }
             }catch(NumberFormatException e){
             }
+            MainPanel.add(panelCarrito);
             panelComida.setVisible(false);
             panelRopa.setVisible(false);
             panelTecno.setVisible(false);
@@ -256,10 +278,13 @@ public class GUI_Principal extends javax.swing.JFrame {
             auxBtnAtras = 2;
         }
         if (panelCarrito.isVisible() && (auxBtnAtras == 4)){
+            cliente.getCarrito().getProductos().remove(cliente.getCarrito().getProductos().size()-1);
             btnAgregar.setVisible(false);
             btnSiguiente.setVisible(false);
+            btnAtras.setText("Atrás");
             panelCarrito.setVisible(false);
             panelCat.setVisible(true);
+            panelCat.getButtonGroupCategoria().clearSelection();
             auxBtnAtras = 2;
         }
     }//GEN-LAST:event_btnAtrasActionPerformed
@@ -269,9 +294,11 @@ public class GUI_Principal extends javax.swing.JFrame {
         if (panelCarrito.isVisible() && (auxBtnAtras == 4)){
             btnAgregar.setVisible(false);
             btnSiguiente.setVisible(false);
+            btnAtras.setText("Atrás");
             panelCarrito.setVisible(false);
             panelCat.setVisible(true);
-            auxBtnAtras = 2;
+            panelCat.getButtonGroupCategoria().clearSelection();
+            auxBtnAtras = 2;           
         }
         
     }//GEN-LAST:event_btnAgregarActionPerformed

@@ -6,6 +6,7 @@
 package javaapplication43;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
@@ -28,8 +29,34 @@ public class PanelRopa extends javax.swing.JPanel {
     public ButtonGroup getBtgRopa() {
         return btgRopa;
     }
-    
-    
+
+    public JRadioButton getRbCamisa() {
+        return rbCamisa;
+    }
+
+    public JRadioButton getRbCamiseta() {
+        return rbCamiseta;
+    }
+
+    public JRadioButton getRbChaqueta() {
+        return rbChaqueta;
+    }
+
+    public JRadioButton getRbMedias() {
+        return rbMedias;
+    }
+
+    public JRadioButton getRbPantalon() {
+        return rbPantalon;
+    }
+
+    public JRadioButton getRbVestido() {
+        return rbVestido;
+    }
+
+    public JRadioButton getRbZapatos() {
+        return rbZapatos;
+    }
     
     public String getTipoRopa() {
         if(rbCamisa.isSelected()){

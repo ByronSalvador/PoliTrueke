@@ -6,6 +6,7 @@
 package javaapplication43;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
@@ -28,8 +29,34 @@ public class PanelTecnologia extends javax.swing.JPanel {
     public ButtonGroup getBtgTecno() {
         return btgTecno;
     }
-    
-    
+
+    public JRadioButton getRbAudifonos() {
+        return rbAudifonos;
+    }
+
+    public JRadioButton getRbCamara() {
+        return rbCamara;
+    }
+
+    public JRadioButton getRbCelular() {
+        return rbCelular;
+    }
+
+    public JRadioButton getRbComputadora() {
+        return rbComputadora;
+    }
+
+    public JRadioButton getRbReloj() {
+        return rbReloj;
+    }
+
+    public JRadioButton getRbTablet() {
+        return rbTablet;
+    }
+
+    public JRadioButton getRbTelevision() {
+        return rbTelevision;
+    }
     
     public String getTipoTecno() {
         if(rbAudifonos.isSelected()){
